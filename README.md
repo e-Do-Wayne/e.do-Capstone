@@ -72,7 +72,7 @@ Next, you'll need to edit the "ministarter" file in the home directory. Change t
 * C++11 - Used to sleep to give time for e.DO to process commands
 
 
-## Authors
+## Reference
 
 * **Jack Shelata** - [jack@jackshelata.com](mailto:jack@jackshelata.com)
 
