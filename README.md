@@ -1,10 +1,10 @@
 # e.DO Manual Control using ROS2
 
 ## Team Members
-**Ayush Shrestha - Team Lead**
-**Scott Howard - Implementation Lead**
-**Adam Erdman - Integration Lead**
-**Seth Buchinger - Documentation Lead**
+**Ayush Shrestha - Team Lead**  
+**Scott Howard - Implementation Lead**  
+**Adam Erdman - Integration Lead**  
+**Seth Buchinger - Documentation Lead**  
 
 ## Goals / Objectives
 * Convert wrapper class for e.DO robot previously developed by Jack Shelata
