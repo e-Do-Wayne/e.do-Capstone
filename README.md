@@ -76,10 +76,16 @@ Next, you'll need to edit the "ministarter" file in the home directory. Change t
 
 ## Build Dependencies
 
+
+* **Jack's**
 * [Ncurses](https://www.cyberciti.biz/faq/linux-install-ncurses-library-headers-on-debian-ubuntu-centos-fedora/) - Used for asynchronous jog control
 * [ROS Kinetic](http://wiki.ros.org/kinetic.Installation)
 * [eDO_core_msgs](https://github.com/Comau/eDO_core_msgs) - Must be cloned in catkin_ws/src/
 * C++11 - Used to sleep to give time for e.DO to process commands
+
+* **Changes for Current Team**
+* [Ros Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
+* [Ros2 Eloquent](https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/)
 
 
 ## Reference
