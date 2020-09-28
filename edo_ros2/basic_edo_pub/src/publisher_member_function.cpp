@@ -19,10 +19,10 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
-#include "edo_core_msgs/MovementCommand.h"
-#include "edo_core_msgs/JointCalibration.h"
-#include "edo_core_msgs/JointReset.h"
-#include "edo_core_msgs/JointInit.h"
+#include "edo_core_msgs/MovementCommand.hpp"
+#include "edo_core_msgs/JointCalibration.hpp"
+#include "edo_core_msgs/JointReset.hpp"
+#include "edo_core_msgs/JointInit.hpp"
 using namespace std::chrono_literals;
 
 /* This example creates a subclass of Node and uses std::bind() to register a
@@ -55,8 +55,7 @@ private:
     msg.target.joints_mask = 63;
     msg.target.joints_data.resize(6, 0.0);
 
- std::cout << "cartesian coordinates as follows and press enter: "
-              << "X Y Z A E R\n";
+std::cout << "joint angles as follows and press enter: J1 J2 J3 J4 J5 J6\n";
               
     for(int x = 0; x < 6; ++x){
         scanf("%f", &msg.target.joints_data[x]);
