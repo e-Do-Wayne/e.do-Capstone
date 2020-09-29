@@ -35,7 +35,7 @@ public:
   : Node("minimal_publisher"), count_(0)
   {
     
-    publisher_ = this->create_publisher<edo_core_msgs::msg::MovementCommand>("/bridge_jog", 10);
+    publisher_ = this->create_publisher<edo_core_msgs::msg::MovementCommand>("/bridge_move", 10);
     timer_ = this->create_wall_timer(
       500ms, std::bind(&MinimalPublisher::timer_callback, this));
   }
