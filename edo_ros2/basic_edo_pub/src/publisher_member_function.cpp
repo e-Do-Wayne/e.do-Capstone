@@ -19,10 +19,10 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
-#include "edo_core_msgs/MovementCommand.hpp"
-#include "edo_core_msgs/JointCalibration.hpp"
-#include "edo_core_msgs/JointReset.hpp"
-#include "edo_core_msgs/JointInit.hpp"
+#include "edo_core_msgs/msg/movement_command.hpp"
+#include "edo_core_msgs/msg/joint_calibration.hpp"
+#include "edo_core_msgs/msg/joint_reset.hpp"
+#include "edo_core_msgs/msg/joint_init.hpp"
 using namespace std::chrono_literals;
 
 /* This example creates a subclass of Node and uses std::bind() to register a
@@ -35,7 +35,7 @@ public:
   : Node("minimal_publisher"), count_(0)
   {
     
-    publisher_ = this->create_publisher<std_msgs::msg::String>("/bridge_jog", 10);
+    publisher_ = this->create_publisher<edo_core_msgs::msg::MovementCommand>("/bridge_jog", 10);
     timer_ = this->create_wall_timer(
       500ms, std::bind(&MinimalPublisher::timer_callback, this));
   }
@@ -45,18 +45,18 @@ private:
   {
     auto message = std_msgs::msg::String();
     message.data = "Hello, world! " + std::to_string(count_++);
-      edo_core_msgs::MovementCommand msg;
+      edo_core_msgs::msg::MovementCommand msg;
 
        msg.move_command = 77;
     msg.move_type = 74;
     msg.ovr = 100;
-    msg.delay = delay;
+    msg.delay = 1;
     msg.target.data_type = 74;
     msg.target.joints_mask = 63;
     msg.target.joints_data.resize(6, 0.0);
 
-std::cout << "joint angles as follows and press enter: J1 J2 J3 J4 J5 J6\n";
-              
+ std::cout << "joint angles as follows and press enter: J1 J2 J3 J4 J5 J6\n";
+
     for(int x = 0; x < 6; ++x){
         scanf("%f", &msg.target.joints_data[x]);
       }
@@ -64,7 +64,7 @@ std::cout << "joint angles as follows and press enter: J1 J2 J3 J4 J5 J6\n";
     publisher_->publish(msg);
   }
   rclcpp::TimerBase::SharedPtr timer_;
-  rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+  rclcpp::Publisher<edo_core_msgs::msg::MovementCommand>::SharedPtr publisher_;
   size_t count_;
 };
 

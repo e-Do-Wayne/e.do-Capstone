@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/maclo4/basic_edo_pub
+CMAKE_SOURCE_DIR = /home/maclo4/edo_manual_ws/src/basic_edo_pub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/maclo4/basic_edo_pub/build/basic_edo_pub
+CMAKE_BINARY_DIR = /home/maclo4/edo_manual_ws/src/basic_edo_pub/build/basic_edo_pub
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,6 +80,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -102,16 +112,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -137,9 +137,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maclo4/basic_edo_pub/build/basic_edo_pub/CMakeFiles /home/maclo4/basic_edo_pub/build/basic_edo_pub/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maclo4/edo_manual_ws/src/basic_edo_pub/build/basic_edo_pub/CMakeFiles /home/maclo4/edo_manual_ws/src/basic_edo_pub/build/basic_edo_pub/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maclo4/basic_edo_pub/build/basic_edo_pub/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maclo4/edo_manual_ws/src/basic_edo_pub/build/basic_edo_pub/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -193,6 +193,46 @@ uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
+#=============================================================================
+# Target rules for targets named talker
+
+# Build rule for target.
+talker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 talker
+.PHONY : talker
+
+# fast build rule for target.
+talker/fast:
+	$(MAKE) -f CMakeFiles/talker.dir/build.make CMakeFiles/talker.dir/build
+.PHONY : talker/fast
+
+src/publisher_member_function.o: src/publisher_member_function.cpp.o
+
+.PHONY : src/publisher_member_function.o
+
+# target to build an object file
+src/publisher_member_function.cpp.o:
+	$(MAKE) -f CMakeFiles/talker.dir/build.make CMakeFiles/talker.dir/src/publisher_member_function.cpp.o
+.PHONY : src/publisher_member_function.cpp.o
+
+src/publisher_member_function.i: src/publisher_member_function.cpp.i
+
+.PHONY : src/publisher_member_function.i
+
+# target to preprocess a source file
+src/publisher_member_function.cpp.i:
+	$(MAKE) -f CMakeFiles/talker.dir/build.make CMakeFiles/talker.dir/src/publisher_member_function.cpp.i
+.PHONY : src/publisher_member_function.cpp.i
+
+src/publisher_member_function.s: src/publisher_member_function.cpp.s
+
+.PHONY : src/publisher_member_function.s
+
+# target to generate assembly for a file
+src/publisher_member_function.cpp.s:
+	$(MAKE) -f CMakeFiles/talker.dir/build.make CMakeFiles/talker.dir/src/publisher_member_function.cpp.s
+.PHONY : src/publisher_member_function.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -201,13 +241,17 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... basic_edo_pub_uninstall"
 	@echo "... uninstall"
+	@echo "... talker"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... src/publisher_member_function.o"
+	@echo "... src/publisher_member_function.i"
+	@echo "... src/publisher_member_function.s"
 .PHONY : help
 
 

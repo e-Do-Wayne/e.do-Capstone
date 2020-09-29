@@ -2,7 +2,7 @@
 
 # since this file is sourced use either the provided AMENT_CURRENT_PREFIX
 # or fall back to the destination set at configure time
-: ${AMENT_CURRENT_PREFIX:="/home/maclo4/basic_edo_pub/install/basic_edo_pub"}
+: ${AMENT_CURRENT_PREFIX:="/home/maclo4/edo_manual_ws/src/basic_edo_pub/install/basic_edo_pub"}
 if [ ! -d "$AMENT_CURRENT_PREFIX" ]; then
   if [ -z "$COLCON_CURRENT_PREFIX" ]; then
     echo "The compile time prefix path '$AMENT_CURRENT_PREFIX' doesn't " \
