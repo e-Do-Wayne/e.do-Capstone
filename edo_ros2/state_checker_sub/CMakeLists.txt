@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(basic_edo_pub)
+project(state_checker_sub)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -27,8 +27,8 @@ add_executable(talker src/publisher_member_function.cpp)
 ament_target_dependencies(talker rclcpp std_msgs edo_core_msgs)
 
 
-add_executable(StateChecker src/subscriber_member_function.cpp)
-#add_executable(StateChecker src/StateChecker.cpp)
+#add_executable(StateChecker src/subscriber_member_function.cpp)
+add_executable(StateChecker src/StateChecker.cpp)
 ament_target_dependencies(StateChecker rclcpp std_msgs edo_core_msgs)
 
 install(TARGETS

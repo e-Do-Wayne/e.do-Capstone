@@ -1,11 +1,14 @@
-c/** @file StateChecker.cpp
+/** @file StateChecker.cpp
  *  @brief Class implementation for StateChecker. Used to check the state of
  *  e.DO
  *  @author Jack Shelata
  *  @date May 28, 2018
  */
 
-#include "StateChecker.h"
+#include "StateChecker.hpp"
+//#include <memory>
+using std::placeholders::_1;
+
 
 /***************************************************************
 **                Function(s) Definition
@@ -17,8 +20,8 @@ c/** @file StateChecker.cpp
  *  @return StateChecker object
  *  @exception None
  */
-StateChecker::StateChecker(rclcpp::Node& nh_in){
-  nh = nh_in;
+StateChecker::StateChecker() : Node("StateChecker"){
+  //nh = nh_in;
   //machine_state_sub = nh.subscribe("/machine_state", 10,
   //  &StateChecker::stateCallback, this);
 

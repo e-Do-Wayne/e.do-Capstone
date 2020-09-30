@@ -321,6 +321,9 @@ basic_edo_pub_SOURCE_DIR:STATIC=/home/maclo4/edo_manual_ws/src/basic_edo_pub
 //The directory containing a CMake configuration file for builtin_interfaces.
 builtin_interfaces_DIR:PATH=/opt/ros/eloquent/share/builtin_interfaces/cmake
 
+//The directory containing a CMake configuration file for edo_core_msgs.
+edo_core_msgs_DIR:PATH=edo_core_msgs_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for rcl.
 rcl_DIR:PATH=/opt/ros/eloquent/share/rcl/cmake
 
