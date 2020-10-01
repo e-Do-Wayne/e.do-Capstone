@@ -20,7 +20,7 @@ using std::placeholders::_1;
  *  @return StateChecker object
  *  @exception None
  */
-StateChecker::StateChecker() : Node("StateChecker"){
+StateChecker::StateChecker(){
   //nh = nh_in;
   //machine_state_sub = nh.subscribe("/machine_state", 10,
   //  &StateChecker::stateCallback, this);
@@ -37,7 +37,7 @@ StateChecker::StateChecker() : Node("StateChecker"){
  *  @return void
  *  @exception None
  */
-void StateChecker::stateCallback(const edo_core_msgs::msg::MachineState& state){
+void StateChecker::stateCallback(const edo_core_msgs::msg::MachineState::SharedPtr state){
   stateReceived = true;
   machine_state = state.current_state;
 }  // StateChecker::stateCallback()
@@ -63,6 +63,7 @@ bool StateChecker::getStateReceived(){
 
 int main(int argc, char * argv[])
 {
+  edo_core_msgs::msg::MachineState state;
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<MachineState>());
   rclcpp::shutdown();

@@ -7,7 +7,6 @@
 #ifndef __STATE_CHECKER_H__
 #define __STATE_CHECKER_H__
 
-
 #include <functional>
 #include <memory>
 #include "rclcpp/rclcpp.hpp" //ros2
@@ -27,7 +26,8 @@ class StateChecker : public rclcpp::Node {
 public:
   // Cunstruct StateChecker object. Constructor creates and initializes ROS
   // Subscriber to check the e.DO's Machine State
-  StateChecker::StateChecker() : Node("StateChecker"){
+  StateChecker()
+   : Node("StateChecker"){
   //nh = nh_in;
   //machine_state_sub = nh.subscribe("/machine_state", 10,
   //  &StateChecker::stateCallback, this);
@@ -40,7 +40,7 @@ public:
 
   // Callback function to get and save state number from "/machine_state"
   // ROS topic
-  void stateCallback(const edo_core_msgs::msg::MachineState& state);
+  void stateCallback(const edo_core_msgs::msg::MachineState::SharedPtr state);
 
   // Getter member function to return the saved machine state number
   int getState();
@@ -51,7 +51,7 @@ public:
 private:
 
   //ros::NodeHandle nh;                     // 
-  rclcpp::Node nh;
+  //rclcpp::Node nh;
   //ros::Subscriber machine_state_sub;      // 
   rclcpp::Subscription<edo_core_msgs::msg::MachineState>::SharedPtr machine_state_sub;
   int machine_state;                      // 
